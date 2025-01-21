@@ -19,39 +19,50 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Welcome to My Portfolio</h1>
-        <p>Full-Stack Developer | Web Designer</p>
-      </header>
+      {/* Left Sidebar (Navbar) */}
+      <div className="navbar">
+        <h2>My Portfolio</h2>
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
 
-      <animated.section id="about" style={aboutProps}>
-        <h2>About Me</h2>
-        <p>Hello! I'm a passionate full-stack developer with experience in building dynamic web applications.</p>
-      </animated.section>
+      {/* Main Content Area */}
+      <div className="main-content">
+        <header className="App-header">
+          <h1>Welcome to My Portfolio</h1>
+          <p>Full-Stack Developer | Web Designer</p>
+        </header>
 
-      <animated.section id="projects" style={projectProps}>
-        <h2>Projects</h2>
-        <div className="project-list">
-          <div className="project-item">
-            <h3>Project 1</h3>
-            <p>Project description...</p>
+        <animated.section id="about" style={aboutProps}>
+          <h2>About Me</h2>
+          <p>Hello! I'm a passionate full-stack developer with experience in building dynamic web applications.</p>
+        </animated.section>
+
+        <animated.section id="projects" style={projectProps}>
+          <h2>Projects</h2>
+          <div className="project-list">
+            <div className="project-item">
+              <h3>Project 1</h3>
+              <p>Project description...</p>
+            </div>
+            <div className="project-item">
+              <h3>Project 2</h3>
+              <p>Project description...</p>
+            </div>
           </div>
-          <div className="project-item">
-            <h3>Project 2</h3>
-            <p>Project description...</p>
-          </div>
-        </div>
-      </animated.section>
+        </animated.section>
 
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: pvshyamlal4@example.com</p>
-        <p>LinkedIn: <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">linkedin.com/in/your-profile</a></p>
-      </section>
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>Email: example@example.com</p>
+          <p>LinkedIn: <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">linkedin.com/in/your-profile</a></p>
+        </section>
 
-      <footer>
-        <p>&copy; 2025 Your Name</p>
-      </footer>
+        <footer>
+          <p>&copy; 2025 Your Name</p>
+        </footer>
+      </div>
     </div>
   );
 }
