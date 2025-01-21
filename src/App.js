@@ -26,7 +26,7 @@ function App() {
 
       <animated.section id="about" style={aboutProps}>
         <h2>About Me</h2>
-        <p>Hello! I'm a passionate full-stack developer with experience in building dynamic web applications.</p>
+        <p>Hello! shyam lal I'm a passionate full-stack developer with experience in building dynamic web applications.</p>
       </animated.section>
 
       <animated.section id="projects" style={projectProps}>
