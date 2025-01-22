@@ -1,67 +1,72 @@
-import React from 'react';
-import { useSpring, animated } from 'react-spring';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
-  // About Me Section Animation
-  const aboutProps = useSpring({
-    opacity: 1,
-    from: { opacity: 0 },
-    config: { duration: 1000 },
-  });
+  const [isOpen, setIsOpen] = useState(false);
 
-  // Projects Section Animation
-  const projectProps = useSpring({
-    opacity: 1,
-    from: { opacity: 0 },
-    config: { duration: 1000 },
-  });
+  // Detect screen size to reset navbar state
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setIsOpen(true);  // Navbar will be open on desktop
+      } else {
+        setIsOpen(false); // Navbar closed on mobile by default
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Call once on initial load
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <div className="App">
-      {/* Left Sidebar (Navbar) */}
-      <div className="navbar">
-        <h2>My Portfolio</h2>
-        <a href="#about">About Me</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+      {/* Hamburger Menu for Mobile */}
+      <div className="hamburger" onClick={toggleNavbar} style={{ backgroundColor: isOpen ? "#00adb5" : "#222831" }}>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
 
-      {/* Main Content Area */}
-      <div className="main-content">
-        <header className="App-header">
+      {/* Navbar */}
+      <div className={`navbar ${isOpen ? "open" : ""}`}>
+        <div className="profile">
+          <img
+            src="https://res.cloudinary.com/dwwpovlcs/image/upload/fl_preserve_transparency/v1717385123/lttms5pdcvvorus9x9ru.jpg?_s=public-apps" // Replace with your image URL
+            alt="Profile"
+          />
+          <h2>PALLAVARAM SHYAM SUNDAR LAL</h2>
+        </div>
+        <nav>
+          <a href="#home">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="#about">About Me</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+
+      {/* Main Content */}
+      <div className={`main-content ${isOpen ? "shifted" : ""}`}>
+        <section id="home">
           <h1>Welcome to My Portfolio</h1>
-          <p>Full-Stack Developer | Web Designer</p>
-        </header>
-
-        <animated.section id="about" style={aboutProps}>
-          <h2>About Me</h2>
-          <p>Hello! I'm a passionate full-stack developer with experience in building dynamic web applications.</p>
-        </animated.section>
-
-        <animated.section id="projects" style={projectProps}>
+        </section>
+        <section id="projects">
           <h2>Projects</h2>
-          <div className="project-list">
-            <div className="project-item">
-              <h3>Project 1</h3>
-              <p>Project description...</p>
-            </div>
-            <div className="project-item">
-              <h3>Project 2</h3>
-              <p>Project description...</p>
-            </div>
-          </div>
-        </animated.section>
-
+          <p>Here are some of my featured projects.</p>
+        </section>
+        <section id="about">
+          <h2>About Me</h2>
+          <p>I am a passionate developer.</p>
+        </section>
         <section id="contact">
           <h2>Contact</h2>
           <p>Email: example@example.com</p>
-          <p>LinkedIn: <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">linkedin.com/in/your-profile</a></p>
         </section>
-
-        <footer>
-          <p>&copy; 2025 Your Name</p>
-        </footer>
       </div>
     </div>
   );

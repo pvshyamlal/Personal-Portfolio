@@ -1,111 +1,149 @@
-/* Full-screen background */
-body {
+/* Reset Styles */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: Arial, sans-serif;
-  background-image: url('https://asset.cloudinary.com/dwwpovlcs/f882a6ac1bcd5e2fcc9fda29d28e6983'); /* Replace with your image URL */
-  background-position: bottom;
-  background-size: cover;
-  background-attachment: fixed;
-  height: 100vh;
-  width: 100%;
+  background-color: #f5f7fa;
+  overflow-x: hidden;
 }
 
-/* Container for App layout */
-.App {
-  display: flex;
-  height: 100vh;
-}
-
-/* Left Navbar */
+/* Navbar Styles */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 250px;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
+  background-color: #222831;
+  color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 50px;
+  padding: 20px;
+  z-index: 1000;
 }
 
-.navbar h2 {
-  margin-bottom: 30px;
+.navbar.open {
+  transform: translateY(0);
+}
+
+.profile {
+  text-align: center;
+}
+
+.profile img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 10px solid #00adb5;
+  margin-bottom: 10px;
+}
+
+.profile h2 {
   font-size: 1.5rem;
+  color: #00adb5;
+  margin-bottom: 20px;
 }
 
-.navbar a {
-  color: white;
+nav a {
+  display: block;
+  color: #eeeeee;
   text-decoration: none;
   font-size: 1.2rem;
-  margin: 15px 0;
-  transition: color 0.3s;
+  margin: 10px 0;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
-.navbar a:hover {
-  color: #ff6347;
+nav a:hover {
+  background-color: #00adb5;
+  color: #222831;
+  transform: translateY(5px);
 }
 
-/* Main Content Area */
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.hamburger div {
+  width: 30px;
+  height: 3px;
+  background-color: #222831;
+  margin: 5px 0;
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .navbar.open {
+    transform: translateY(0);
+  }
+
+  .main-content {
+    margin-top: 0;
+  }
+}
+
+/* Main Content */
 .main-content {
-  margin-left: 260px; /* Space for navbar */
-  flex-grow: 1;
-  color: white;
-  overflow-y: auto;
+  margin-left: 250px;
   padding: 20px;
+  transition: margin-top 0.3s ease-in-out, margin-left 0.3s ease-in-out;
 }
 
-.App-header {
+.main-content.shifted {
+  margin-left: 0;
+  margin-top: 200px; /* Adjust based on navbar height */
+}
+
+h1,
+h2 {
+  color: #222831;
   text-align: center;
-  padding: 50px;
+  margin: 20px 0;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+p {
+  color: #393e46;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Improved Color Palette */
+body {
+  background-color: #f5f7fa;
 }
 
 h1 {
-  font-size: 3rem;
+  color: #222831;
 }
 
 h2 {
-  font-size: 2rem;
-  margin-top: 30px;
-}
-
-/* Section Styles */
-section {
-  margin: 40px 0;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent */
-  border-radius: 10px;
-}
-
-.project-list {
-  display: flex;
-  gap: 20px;
-}
-
-.project-item {
-  background-color: #fff;
-  padding: 15px;
-  border: 1px solid #ddd;
-  flex: 1;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #333;
-  color: white;
-}
-
-a {
-  color: #0077b5;
+  color: #00adb5;
 }
