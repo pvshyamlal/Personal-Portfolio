@@ -1,5 +1,5 @@
 <header>
-    <nav>
+    <nav class="sidebar" [ngClass]="{'mobile-nav': isMobile, 'open': navOpen}">
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -7,14 +7,16 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+    <button class="toggle-btn" *ngIf="isMobile" (click)="toggleNav()">☰</button>
   </header>
   
   <section class="hero">
     <div class="intro">
       <h1>Hello, I'm <span class="highlight">Shyamlal</span></h1>
-      <p>A passionate Software Engineer | Angular Enthusiast</p>
+      <p class="animated-text">
+        I'm <span id="dynamic-text"></span>
+      </p>
       <button (click)="navigateTo('projects')">View My Work</button>
     </div>
-    <img src="assets/profile.jpg" alt="Profile Picture" class="profile-img">
   </section>
   

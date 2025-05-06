@@ -1,72 +1,95 @@
-/* Global Styles */
+/* Set full-page background image */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: #f4f4f4;
-    color: #333;
+    background: url('https://res.cloudinary.com/dwwpovlcs/image/upload/v1737459810/IMG_5050_EDITED_xyloow.jpg') no-repeat center center/cover;
+    color: white;
+    height: 100vh;
+    display: flex;
   }
   
-  /* Navigation Bar */
-  nav {
-    background: #222;
-    padding: 15px;
+  /* Sidebar Navigation */
+  .sidebar {
     position: fixed;
-    width: 100%;
+    left: 0;
     top: 0;
-    z-index: 1000;
+    width: 220px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
   }
-  nav ul {
+  
+  /* Sidebar links */
+  .sidebar ul {
     list-style: none;
-    display: flex;
-    justify-content: center;
+    padding: 0;
   }
-  nav ul li {
-    margin: 0 15px;
+  
+  .sidebar ul li {
+    margin: 15px 0;
   }
-  nav ul li a {
+  
+  .sidebar ul li a {
     color: white;
     text-decoration: none;
     font-size: 18px;
-    transition: 0.3s;
+    transition: 0.2s;
   }
-  nav ul li a:hover {
+  
+  .sidebar ul li a:hover {
     color: #00bcd4;
   }
   
-  /* Hero Section */
-  .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 100px 10%;
-    background: linear-gradient(135deg, #00bcd4, #7c4dff);
+  /* Hide toggle button on desktop */
+  .toggle-btn {
+    display: none;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    font-size: 24px;
+    background: transparent;
     color: white;
-  }
-  .intro h1 {
-    font-size: 40px;
-  }
-  .highlight {
-    color: yellow;
-  }
-  button {
-    background: white;
-    color: #00bcd4;
-    padding: 10px 20px;
     border: none;
-    font-size: 18px;
     cursor: pointer;
-    transition: 0.3s;
-  }
-  button:hover {
-    background: #00bcd4;
-    color: white;
   }
   
-  /* Profile Image */
-  .profile-img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  /* Mobile navbar */
+  .mobile-nav {
+    transform: translateX(-100%);
+  }
+  
+  .open {
+    transform: translateX(0);
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .toggle-btn {
+      display: block;
+    }
+  
+    .sidebar {
+      width: 250px;
+      transform: translateX(-100%);
+    }
+  }
+  
+  /* Animated Text */
+  .animated-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: yellow;
+    margin-top: 10px;
+  }
+  
+  #dynamic-text {
+    border-right: 2px solid white;
+    padding-right: 5px;
+    animation: blink 0.7s infinite;
+  }
+  
+  @keyframes blink {
+    50% { border-color: transparent; }
   }
   
