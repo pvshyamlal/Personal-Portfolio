@@ -1,0 +1,72 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f4f4f4;
+    color: #333;
+  }
+  
+  /* Navigation Bar */
+  nav {
+    background: #222;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+  nav ul li {
+    margin: 0 15px;
+  }
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+  }
+  nav ul li a:hover {
+    color: #00bcd4;
+  }
+  
+  /* Hero Section */
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 100px 10%;
+    background: linear-gradient(135deg, #00bcd4, #7c4dff);
+    color: white;
+  }
+  .intro h1 {
+    font-size: 40px;
+  }
+  .highlight {
+    color: yellow;
+  }
+  button {
+    background: white;
+    color: #00bcd4;
+    padding: 10px 20px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  button:hover {
+    background: #00bcd4;
+    color: white;
+  }
+  
+  /* Profile Image */
+  .profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+  
